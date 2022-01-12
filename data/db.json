@@ -1,8 +1,24 @@
 {
   "notes": [
     {
+      "title": "Holmes' Apprentice",
+      "text": "Watch the Wimbledon games",
+      "id": "YAm1mvWa1rKaMADdYIfLc"
+    },
+    {
+      "title": "Hola",
+      "text": "Learn Spanish in Mexico.",
+      "id": "-NLy6lwegAdAev4fp5iRp"
+    },
+    {
       "title": "Jessie's photo spot suggestions",
-      "text": "First in line must be a mountain-watching spot in Seattle."
+      "text": "First in line must be a mountain-watching spot in Seattle.",
+      "id": "9rjlLUasnqRcXDMvsVzZD"
+    },
+    {
+      "title": "Winnie's photos",
+      "text": "Taken in Toronto.",
+      "id": "RVGO_Ln_uU9EIHD5mrjGW"
     }
   ]
 }

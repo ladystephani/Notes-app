@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const { nanoid } = require("nanoid");
 
-router.get("/api/notes", (req, res) => {
+router.get("/", (req, res) => {
   let resultsArr = notes;
   if (req.query) {
     results = filterByQuery(req.query, resultsArr);
@@ -13,8 +13,8 @@ router.get("/api/notes", (req, res) => {
   res.json(resultsArr);
 });
 
-router.post("/api/notes", (req, res) => {
-  req.body.id = notes.length.toString();
+router.post("/", (req, res) => {
+  //req.body.id = notes.length.toString();
   if (!validateNote(req.body)) {
     res.status(400).send("The note is not properly formatted.");
   } else {
@@ -24,18 +24,20 @@ router.post("/api/notes", (req, res) => {
 });
 
 //helper functions for .post()
-function createNewNote(body, notesArr) {
+function createNewNote(body, notes) {
   const { title, text } = body;
   const note = {
     title: title,
     text: text,
     id: nanoid(),
   };
-  notesArr.push(note);
+  notes.push(note);
+
   fs.writeFileSync(
     path.join(__dirname, "../../data/db.json"),
-    JSON.stringify({ notesArr }, null, 2)
+    JSON.stringify({ notes }, null, 2) //needs to stay in sync with the const {notes} taken from /data
   );
+
   return note;
 }
 
@@ -58,17 +60,6 @@ function filterByQuery(query, notesArr) {
     filteredResults = filteredResults.filter(
       (note) => note.title === query.title //whatever was queried would be found in notes
     );
-    // if (typeof query.title === "string") {
-    //   infoArr = [query.title];
-    // } else {
-    //     infoArr = query.title;
-    // }
-    // // console.log(infoArr);
-    // // infoArr.forEach((trait) => {
-    // //   filteredResults = filteredResults.filter(
-    // //     (animal) => animal.personalityTraits.indexOf(trait) !== -1
-    // //   );
-    // // });
   }
   if (query.text) {
     filteredResults = filteredResults.filter(
