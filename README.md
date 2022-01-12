@@ -2,7 +2,7 @@
 
 # Deployed Application
 
-[App Link](https://ladystephani.github.io/Notes-app/)
+[App Link](https://obscure-gorge-53767.herokuapp.com/)
 
 ## Description
 
@@ -15,7 +15,7 @@ This program allows for users to create, save and view notes.
 
 ## Technologies used
 
-HTML, CSS, JavaScript, ES6, Node.js, Express.js
+HTML, CSS, JavaScript, ES6, Node.js, Express.js, Heroku
 
 ## License
 
